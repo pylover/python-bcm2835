@@ -25,7 +25,7 @@ setup(
     license='MIT',
     install_requires=[],
     packages=find_packages(),
-    ext_modules=cythonize("bcm2835/_bcm2835.pyx"),
+    ext_modules=cythonize(Extension("bcm2835.common", ["bcm2835/common.pyx"])),
     # entry_points={
     #     'console_scripts': [
     #         'raspy.gpio= raspy.gpio:main'
