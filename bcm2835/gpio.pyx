@@ -1,18 +1,4 @@
 
-#include "gpio.h"
+cimport _bcm2835
 
-static PyMethodDef module_methods[] = {
-//    {
-//      "system",  spam_system, METH_VARARGS,
-//     "Execute a shell command."},
-
-    {NULL, NULL, 0, NULL}        /* Sentinel - Dummy, i think so*/
-};
-
-PyMODINIT_FUNC initgpio(void)
-{
-    PyObject *m;
-    m = Py_InitModule("gpio", module_methods);
-    if (m == NULL)
-        return;
-}
+HIGH = _bcm2835.HIGH
