@@ -1,4 +1,6 @@
 
-cimport _bcm2835
+cimport bcm2835._bcm2835
 
-HIGH = _bcm2835.HIGH
+bcm = bcm2835._bcm2835
+
+HIGH = bcm.HIGH
