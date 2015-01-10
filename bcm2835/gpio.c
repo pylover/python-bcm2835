@@ -2,8 +2,9 @@
 #include "gpio.h"
 
 static PyMethodDef module_methods[] = {
-    {"system",  spam_system, METH_VARARGS,
-     "Execute a shell command."},
+//    {
+//      "system",  spam_system, METH_VARARGS,
+//     "Execute a shell command."},
 
     {NULL, NULL, 0, NULL}        /* Sentinel - Dummy, i think so*/
 };
