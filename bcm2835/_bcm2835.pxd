@@ -1,3 +1,4 @@
 
 cdef extern from "bcm2835.h":
-    DEF HIGH = 0x1
+    ctypedef enum bcm2835PadGroup:
+        pass
