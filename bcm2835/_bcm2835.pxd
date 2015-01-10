@@ -1,3 +1,3 @@
 
 cdef extern from "bcm2835.h":
-    int HIGH
+    DEF HIGH = 0x1
