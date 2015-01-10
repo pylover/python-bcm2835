@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from setuptools import setup, Extension, find_packages
+from Cython.Build import cythonize
 import os.path
 import re
 __author__ = 'vahid'
@@ -24,7 +25,7 @@ setup(
     license='MIT',
     install_requires=[],
     packages=find_packages(),
-    ext_modules=[Extension('gpio', ['bcm2835/gpio.c'])],
+    ext_modules=cythonize("bcm2835/gpio.pyx"),
     # entry_points={
     #     'console_scripts': [
     #         'raspy.gpio= raspy.gpio:main'
