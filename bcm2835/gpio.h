@@ -8,10 +8,5 @@ static PyMethodDef module_methods[] = {
     {NULL, NULL, 0, NULL}        /* Sentinel - Dummy, i think so*/
 };
 
-PyMODINIT_FUNC initgpio(void)
-{
-    PyObject *m;
-    m = Py_InitModule("gpio", module_methods);
-    if (m == NULL)
-        return;
-}
+
+PyMODINIT_FUNC initgpio(void);
