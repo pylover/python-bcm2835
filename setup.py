@@ -24,7 +24,7 @@ setup(
     license='MIT',
     install_requires=[],
     packages=find_packages(),
-    ext_modules=[Extension('bcm2835_gpio', ['bcm2835/_bcm2835.c'])],
+    ext_modules=[Extension('bcm2835_gpio', ['bcm2835/gpio.c'])],
     # entry_points={
     #     'console_scripts': [
     #         'raspy.gpio= raspy.gpio:main'
