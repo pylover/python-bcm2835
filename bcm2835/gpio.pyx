@@ -1,4 +1,4 @@
 
-cimport _bcm2835 as bcm
+from _bcm2835 cimport c_HIGH
 
-HIGH = bcm.HIGH
+HIGH = c_HIGH
