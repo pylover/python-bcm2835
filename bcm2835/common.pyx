@@ -1,9 +1,9 @@
 
 
-cimport _bcm2835 as bcm
+from _bcm2835 cimport c_HIGH, bcm2835_init
 
-HIGH = bcm.c_HIGH
+HIGH = c_HIGH
 
 def init():
-  return bcm.bcm2835_init()
+  return bcm2835_init()
 
