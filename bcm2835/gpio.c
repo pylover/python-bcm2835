@@ -1,5 +1,5 @@
 
-##include "gpio.h"
+#include "gpio.h"
 
 static PyMethodDef module_methods[] = {
     {"system",  spam_system, METH_VARARGS,
