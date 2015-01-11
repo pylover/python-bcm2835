@@ -6,30 +6,30 @@ import re
 
 __author__ = 'vahid'
 
-# reading bcm version (same way sqlalchemy does)
-with open(os.path.join(os.path.dirname(__file__), 'bcm', '__init__.py')) as v_file:
+# reading bcm2835 version (same way sqlalchemy does)
+with open(os.path.join(os.path.dirname(__file__), 'bcm2835', '__init__.py')) as v_file:
   package_version = re.compile(r".*__version__ = '(.*?)'", re.S).match(v_file.read()).group(1)
 
 long_description = """
-Raspberry Pi bcm api and c extension for python
+Raspberry Pi bcm2835 api and c extension for python
 ===================================================
 """
 
 setup(
-  name='bcm',
+  name='bcm2835',
   version=package_version,
   author='Vahid Mardani',
   author_email='vahid.mardani@gmail.com',
-  url='http://github.com/pylover/python-bcm',
-  description='Raspberry Pi bcm api and c extension for python',
+  url='http://github.com/pylover/python-bcm2835',
+  description='Raspberry Pi bcm2835 api and c extension for python',
   long_description=long_description,
   license='MIT',
   install_requires=[],
   # packages=find_packages(),
   ext_modules=cythonize([
-    Extension("bcm.bcm2835", [
-      "bcm/bcm2835.pyx",
-      "bcm/_bcm2835.c",
+    Extension("bcm2835.bcm2835", [
+      "bcm2835/bcm2835.pyx",
+      "bcm2835/_bcm2835.c",
       ])
   ]),
   # entry_points={
