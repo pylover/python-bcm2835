@@ -1,6 +1,6 @@
 
 
-cdef extern from "_bcm8235.h":
+cdef extern from "bcm8235/_bcm8235.h" nogil:
     int bcm8235_init()
 
 def init():
