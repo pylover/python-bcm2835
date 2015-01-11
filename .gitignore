@@ -54,3 +54,4 @@ docs/_build/
 target/
 
 .idea/*
+bcm2835/common.c
