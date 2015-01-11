@@ -54,7 +54,18 @@ class TestBCM2835Extension(unittest.TestCase):
     self.assertEqual(GPPUDCLK1, 0x009c)  # GPIO Pin Pull-up/down Enable Clock 1
 
     self.assertEqual(GPIO_FSEL_INPT, 0b000)
+    self.assertEqual(GPIO_FSEL_OUTP, 0b001)
+    self.assertEqual(GPIO_FSEL_ALT0, 0b100)
+    self.assertEqual(GPIO_FSEL_ALT1, 0b101)
+    self.assertEqual(GPIO_FSEL_ALT2, 0b110)
+    self.assertEqual(GPIO_FSEL_ALT3, 0b111)
+    self.assertEqual(GPIO_FSEL_ALT4, 0b011)
+    self.assertEqual(GPIO_FSEL_ALT5, 0b010)
+    self.assertEqual(GPIO_FSEL_MASK, 0b111)
 
+    self.assertEqual(GPIO_PUD_OFF, 0b00)
+    self.assertEqual(GPIO_PUD_DOWN, 0b01)
+    self.assertEqual(GPIO_PUD_UP, 0b10)
 
 if __name__ == '__main__':
   unittest.main()

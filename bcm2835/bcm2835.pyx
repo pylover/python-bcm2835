@@ -73,6 +73,13 @@ GPIO_FSEL_ALT4 = c_BCM2835_GPIO_FSEL_ALT4  # Alternate function 4
 GPIO_FSEL_ALT5 = c_BCM2835_GPIO_FSEL_ALT5  # Alternate function 5
 GPIO_FSEL_MASK = c_BCM2835_GPIO_FSEL_MASK  # Function select bits mask
 
+"""
+Pullup/Pulldown defines for bcm2835_gpio_pud()
+"""
+GPIO_PUD_OFF = c_BCM2835_GPIO_PUD_OFF  # Off ? disable pull-up/down
+GPIO_PUD_DOWN = c_BCM2835_GPIO_PUD_DOWN  # Enable Pull Down control
+GPIO_PUD_UP = c_BCM2835_GPIO_PUD_UP  # Enable Pull Up control
+
 def init():
   return c_bcm2835_init()
 
@@ -91,6 +98,7 @@ __all__ = [
   'GPIO_PADS',
   'GPIO_BASE',
   'GPIO_PWM',
+
   "GPFSEL0",
   "GPFSEL1",
   "GPFSEL2",
@@ -120,6 +128,7 @@ __all__ = [
   "GPPUD",
   "GPPUDCLK0",
   "GPPUDCLK1",
+
   "GPIO_FSEL_INPT",
   "GPIO_FSEL_OUTP",
   "GPIO_FSEL_ALT0",
@@ -129,6 +138,10 @@ __all__ = [
   "GPIO_FSEL_ALT4",
   "GPIO_FSEL_ALT5",
   "GPIO_FSEL_MASK",
+
+  "GPIO_PUD_OFF",
+  "GPIO_PUD_DOWN",
+  "GPIO_PUD_UP",
 
   'init'
 ]

@@ -57,4 +57,9 @@ cdef extern from "_bcm2835.h" nogil:
     c_BCM2835_GPIO_FSEL_ALT5 "BCM2835_GPIO_FSEL_ALT5"
     c_BCM2835_GPIO_FSEL_MASK "BCM2835_GPIO_FSEL_MASK"
 
+  ctypedef enum c_bcm2835PUDControl "bcm2835PUDControl":
+    c_BCM2835_GPIO_PUD_OFF "BCM2835_GPIO_PUD_OFF"
+    c_BCM2835_GPIO_PUD_DOWN "BCM2835_GPIO_PUD_DOWN"
+    c_BCM2835_GPIO_PUD_UP "BCM2835_GPIO_PUD_UP"
+
   int c_bcm2835_init          "bcm2835_init"()
