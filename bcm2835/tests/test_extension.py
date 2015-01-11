@@ -7,6 +7,8 @@ from bcm2835 import *
 class TestBCM2835Extension(unittest.TestCase):
 
   def test_constants(self):
+
+    ## Constants
     self.assertEqual(LOW, 0x0)
     self.assertEqual(HIGH, 0x1)
 
@@ -53,6 +55,105 @@ class TestBCM2835Extension(unittest.TestCase):
     self.assertEqual(GPPUDCLK0, 0x0098)  # GPIO Pin Pull-up/down Enable Clock, 0
     self.assertEqual(GPPUDCLK1, 0x009c)  # GPIO Pin Pull-up/down Enable Clock 1
 
+    self.assertEqual(SPI0_CS, 0x0000)
+    self.assertEqual(SPI0_FIFO, 0x0004)
+    self.assertEqual(SPI0_CLK, 0x0008)
+    self.assertEqual(SPI0_DLEN, 0x000c)
+    self.assertEqual(SPI0_LTOH, 0x0010)
+    self.assertEqual(SPI0_DC, 0x0014)
+
+    self.assertEqual(SPI0_CS_LEN_LONG, 0x02000000)
+    self.assertEqual(SPI0_CS_DMA_LEN, 0x01000000)
+    self.assertEqual(SPI0_CS_CSPOL2, 0x00800000)
+    self.assertEqual(SPI0_CS_CSPOL1, 0x00400000)
+    self.assertEqual(SPI0_CS_CSPOL0, 0x00200000)
+    self.assertEqual(SPI0_CS_RXF, 0x00100000)
+    self.assertEqual(SPI0_CS_RXR, 0x00080000)
+    self.assertEqual(SPI0_CS_TXD, 0x00040000)
+    self.assertEqual(SPI0_CS_RXD, 0x00020000)
+    self.assertEqual(SPI0_CS_DONE, 0x00010000)
+    self.assertEqual(SPI0_CS_TE_EN, 0x00008000)
+    self.assertEqual(SPI0_CS_LMONO, 0x00004000)
+    self.assertEqual(SPI0_CS_LEN, 0x00002000)
+    self.assertEqual(SPI0_CS_REN, 0x00001000)
+    self.assertEqual(SPI0_CS_ADCS, 0x00000800)
+    self.assertEqual(SPI0_CS_INTR, 0x00000400)
+    self.assertEqual(SPI0_CS_INTD, 0x00000200)
+    self.assertEqual(SPI0_CS_DMAEN, 0x00000100)
+    self.assertEqual(SPI0_CS_TA, 0x00000080)
+    self.assertEqual(SPI0_CS_CSPOL, 0x00000040)
+    self.assertEqual(SPI0_CS_CLEAR, 0x00000030)
+    self.assertEqual(SPI0_CS_CLEAR_RX, 0x00000020)
+    self.assertEqual(SPI0_CS_CLEAR_TX, 0x00000010)
+    self.assertEqual(SPI0_CS_CPOL, 0x00000008)
+    self.assertEqual(SPI0_CS_CPHA, 0x00000004)
+    self.assertEqual(SPI0_CS_CS, 0x00000003)
+
+    self.assertEqual(BSC_C, 0x0000)
+    self.assertEqual(BSC_S, 0x0004)
+    self.assertEqual(BSC_DLEN, 0x0008)
+    self.assertEqual(BSC_A, 0x000c)
+    self.assertEqual(BSC_FIFO, 0x0010)
+    self.assertEqual(BSC_DIV, 0x0014)
+    self.assertEqual(BSC_DEL, 0x0018)
+    self.assertEqual(BSC_CLKT, 0x001c)
+
+    self.assertEqual(BSC_C_I2CEN, 0x00008000)
+    self.assertEqual(BSC_C_INTR, 0x00000400)
+    self.assertEqual(BSC_C_INTT, 0x00000200)
+    self.assertEqual(BSC_C_INTD, 0x00000100)
+    self.assertEqual(BSC_C_ST, 0x00000080)
+    self.assertEqual(BSC_C_CLEAR_1, 0x00000020)
+    self.assertEqual(BSC_C_CLEAR_2, 0x00000010)
+    self.assertEqual(BSC_C_READ, 0x00000001)
+
+    self.assertEqual(BSC_S_CLKT, 0x00000200)
+    self.assertEqual(BSC_S_ERR, 0x00000100)
+    self.assertEqual(BSC_S_RXF, 0x00000080)
+    self.assertEqual(BSC_S_TXE, 0x00000040)
+    self.assertEqual(BSC_S_RXD, 0x00000020)
+    self.assertEqual(BSC_S_TXD, 0x00000010)
+    self.assertEqual(BSC_S_RXR, 0x00000008)
+    self.assertEqual(BSC_S_TXW, 0x00000004)
+    self.assertEqual(BSC_S_DONE, 0x00000002)
+    self.assertEqual(BSC_S_TA, 0x00000001)
+    self.assertEqual(BSC_FIFO_SIZE, 16)
+
+    self.assertEqual(ST_CS, 0x0000)
+    self.assertEqual(ST_CLO, 0x0004)
+    self.assertEqual(ST_CHI, 0x0008)
+
+    self.assertEqual(PWM_CONTROL, 0)
+    self.assertEqual(PWM_STATUS, 1)
+    self.assertEqual(PWM_DMAC, 2)
+    self.assertEqual(PWM0_RANGE, 4)
+    self.assertEqual(PWM0_DATA, 5)
+    self.assertEqual(PWM_FIF1, 6)
+    self.assertEqual(PWM1_RANGE, 8)
+    self.assertEqual(PWM1_DATA, 9)
+
+    self.assertEqual(PWMCLK_CNTL, 40)
+    self.assertEqual(PWMCLK_DIV, 41)
+    self.assertEqual(PWM_PASSWRD, 0x5A << 24 )
+    self.assertEqual(PWM1_MS_MODE, 0x8000)
+    self.assertEqual(PWM1_USEFIFO, 0x2000)
+    self.assertEqual(PWM1_REVPOLAR, 0x1000)
+    self.assertEqual(PWM1_OFFSTATE, 0x0800)
+    self.assertEqual(PWM1_REPEATFF, 0x0400)
+    self.assertEqual(PWM1_SERIAL, 0x0200)
+    self.assertEqual(PWM1_ENABLE, 0x0100)
+    self.assertEqual(PWM0_MS_MODE, 0x0080)
+    self.assertEqual(PWM_CLEAR_FIFO, 0x0040)
+    self.assertEqual(PWM0_USEFIFO, 0x0020)
+    self.assertEqual(PWM0_REVPOLAR, 0x0010)
+    self.assertEqual(PWM0_OFFSTATE, 0x0008)
+    self.assertEqual(PWM0_REPEATFF, 0x0004)
+    self.assertEqual(PWM0_SERIAL, 0x0002)
+    self.assertEqual(PWM0_ENABLE, 0x0001)
+
+
+    ## Enums
+
     self.assertEqual(GPIO_FSEL_INPT, 0b000)
     self.assertEqual(GPIO_FSEL_OUTP, 0b001)
     self.assertEqual(GPIO_FSEL_ALT0, 0b100)
@@ -66,7 +167,6 @@ class TestBCM2835Extension(unittest.TestCase):
     self.assertEqual(GPIO_PUD_OFF, 0b00)
     self.assertEqual(GPIO_PUD_DOWN, 0b01)
     self.assertEqual(GPIO_PUD_UP, 0b10)
-
 
     self.assertEqual(RPI_GPIO_P1_03, 0)
     self.assertEqual(RPI_GPIO_P1_05, 1)
