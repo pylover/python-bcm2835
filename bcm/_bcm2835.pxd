@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 __author__ = 'vahid'
 
-cdef extern from "bcm2835.h" nogil:
+cdef extern from "_bcm2835.h" nogil:
   int c_HIGH "HIGH"
   int c_LOW "LOW"
   int c_BCM2835_CORE_CLK_HZ "BCM2835_CORE_CLK_HZ"
