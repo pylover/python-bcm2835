@@ -4,7 +4,7 @@ import unittest
 from bcm2835 import *
 
 
-class TestCommon(unittest.TestCase):
+class TestBCM2835Extension(unittest.TestCase):
 
   def test_constants(self):
     self.assertEqual(LOW, 0x0)
@@ -22,6 +22,36 @@ class TestCommon(unittest.TestCase):
     self.assertEqual(BSC1_BASE, PERI_BASE + 0x804000)
     self.assertEqual(PAGE_SIZE, 4*1024)
     self.assertEqual(BLOCK_SIZE, 4*1024)
+
+    self.assertEqual(GPFSEL0, 0x0000)  # GPIO Function Select, 0
+    self.assertEqual(GPFSEL1, 0x0004)  # GPIO Function Select 1
+    self.assertEqual(GPFSEL2, 0x0008)  # GPIO Function Select 2
+    self.assertEqual(GPFSEL3, 0x000c)  # GPIO Function Select 3
+    self.assertEqual(GPFSEL4, 0x0010)  # GPIO Function Select 4
+    self.assertEqual(GPFSEL5, 0x0014)  # GPIO Function Select 5
+    self.assertEqual(GPSET0, 0x001c)  # GPIO Pin Output Set, 0
+    self.assertEqual(GPSET1, 0x0020)  # GPIO Pin Output Set 1
+    self.assertEqual(GPCLR0, 0x0028)  # GPIO Pin Output Clear, 0
+    self.assertEqual(GPCLR1, 0x002c)  # GPIO Pin Output Clear 1
+    self.assertEqual(GPLEV0, 0x0034)  # GPIO Pin Level, 0
+    self.assertEqual(GPLEV1, 0x0038)  # GPIO Pin Level 1
+    self.assertEqual(GPEDS0, 0x0040)  # GPIO Pin Event Detect Status, 0
+    self.assertEqual(GPEDS1, 0x0044)  # GPIO Pin Event Detect Status 1
+    self.assertEqual(GPREN0, 0x004c)  # GPIO Pin Rising Edge Detect Enable, 0
+    self.assertEqual(GPREN1, 0x0050)  # GPIO Pin Rising Edge Detect Enable 1
+    self.assertEqual(GPFEN0, 0x0058)  # GPIO Pin Falling Edge Detect Enable, 0
+    self.assertEqual(GPFEN1, 0x005c)  # GPIO Pin Falling Edge Detect Enable 1
+    self.assertEqual(GPHEN0, 0x0064)  # GPIO Pin High Detect Enable, 0
+    self.assertEqual(GPHEN1, 0x0068)  # GPIO Pin High Detect Enable 1
+    self.assertEqual(GPLEN0, 0x0070)  # GPIO Pin Low Detect Enable, 0
+    self.assertEqual(GPLEN1, 0x0074)  # GPIO Pin Low Detect Enable 1
+    self.assertEqual(GPAREN0, 0x007c)  # GPIO Pin Async. Rising Edge Detect, 0
+    self.assertEqual(GPAREN1, 0x0080)  # GPIO Pin Async. Rising Edge Detect 1
+    self.assertEqual(GPAFEN0, 0x0088)  # GPIO Pin Async. Falling Edge Detect, 0
+    self.assertEqual(GPAFEN1, 0x008c)  # GPIO Pin Async. Falling Edge Detect 1
+    self.assertEqual(GPPUD, 0x0094)  # GPIO Pin Pull-up/down Enable
+    self.assertEqual(GPPUDCLK0, 0x0098)  # GPIO Pin Pull-up/down Enable Clock, 0
+    self.assertEqual(GPPUDCLK1, 0x009c)  # GPIO Pin Pull-up/down Enable Clock 1
 
 if __name__ == '__main__':
   unittest.main()
