@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from libc.stdint cimport uintptr_t
 __author__ = 'vahid'
 
 cdef extern from "_bcm2835.h" nogil:
@@ -270,4 +271,7 @@ cdef extern from "_bcm2835.h" nogil:
     c_BCM2835_PWM_CLOCK_DIVIDER_2 "BCM2835_PWM_CLOCK_DIVIDER_2"  # ///< 2 = 9.6MHz, fastest you can get
     c_BCM2835_PWM_CLOCK_DIVIDER_1 "BCM2835_PWM_CLOCK_DIVIDER_1"  # ///< 1 = 4.6875kHz, same as divider 4096
 
-  int c_bcm2835_init          "bcm2835_init"()
+  int c_bcm2835_init "bcm2835_init" ()
+  int c_bcm2835_close "bcm2835_close" ()
+  void c_bcm2835_set_debug "bcm2835_set_debug" (int debug)
+  int c_bcm2835_peri_read "bcm2835_peri_read" (uintptr_t paddr)

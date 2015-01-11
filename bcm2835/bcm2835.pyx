@@ -2,7 +2,7 @@
 __author__ = 'vahid'
 
 from _bcm2835 cimport *
-
+from libc.stdint cimport uintptr_t
 
 """
 Common constants
@@ -370,7 +370,55 @@ PWM_CLOCK_DIVIDER_2 = c_BCM2835_PWM_CLOCK_DIVIDER_2  # ///< 2 = 9.6MHz, fastest 
 PWM_CLOCK_DIVIDER_1 = c_BCM2835_PWM_CLOCK_DIVIDER_1  # ///< 1 = 4.6875kHz, same as divider 4096
 
 def init():
+  """
+  Library initialisation and management
+  These functions allow you to initialize and control the bcm2835 library
+
+  Initialise the library by opening /dev/mem and getting pointers to the
+  internal memory for BCM 2835 device registers. You must call this (successfully)
+  before calling any other
+  functions in this library (except bcm2835_set_debug).
+  If bcm2835_init() fails by returning 0,
+  calling any other function may result in crashes or other failures.
+  Prints messages to stderr in case of errors.
+  :return: 1 if successful else 0
+  """
   return c_bcm2835_init()
+
+
+def close():
+  """
+  Close the library, deallocating any allocated memory and closing /dev/mem
+  :return: 1 if successful else 0
+  """
+  return c_bcm2835_close()
+
+
+def set_debug(debug):
+  """
+  Sets the debug level of the library.
+  A value of 1 prevents mapping to /dev/mem, and makes the library print out
+  what it would do, rather than accessing the GPIO registers.
+  A value of 0, the default, causes normal operation.
+  Call this before calling bcm2835_init();
+  :param debug: The new debug level. 1 means debug
+  """
+  c_bcm2835_set_debug(debug)
+
+
+def peri_read(paddr):
+  """
+  These functions provide low level register access, and should not generally
+  need to be used
+
+  Reads 32 bit value from a peripheral address
+  The read is done twice, and is therefore always safe in terms of
+  manual section 1.3 Peripheral access precautions for correct memory ordering
+  :param paddr: Physical address to read from. See BCM2835_GPIO_BASE etc.
+  :return: the value read from the 32 bit register
+  """
+
+  return c_bcm2835_peri_read(<uintptr_t>paddr)
 
 __all__ = [
   'HIGH',
@@ -622,5 +670,8 @@ __all__ = [
   "PWM_CLOCK_DIVIDER_2",
   "PWM_CLOCK_DIVIDER_1",
 
-  'init'
+  'init',
+  'close',
+  'set_debug',
+  'peri_read'
 ]
