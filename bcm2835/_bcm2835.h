@@ -675,19 +675,19 @@ typedef enum
 
 
 // Defines for PWM, word offsets (ie 4 byte multiples)
-#define BCM2835_PWM_CONTROL 0
-#define BCM2835_PWM_STATUS  1
-#define BCM2835_PWM_DMAC    2
-#define BCM2835_PWM0_RANGE  4
-#define BCM2835_PWM0_DATA   5
-#define BCM2835_PWM_FIF1    6
-#define BCM2835_PWM1_RANGE  8
-#define BCM2835_PWM1_DATA   9
+#define BCM2835_PWM_CONTROL 0 ///<
+#define BCM2835_PWM_STATUS  1 ///<
+#define BCM2835_PWM_DMAC    2 ///<
+#define BCM2835_PWM0_RANGE  4 ///<
+#define BCM2835_PWM0_DATA   5 ///<
+#define BCM2835_PWM_FIF1    6 ///<
+#define BCM2835_PWM1_RANGE  8 ///<
+#define BCM2835_PWM1_DATA   9 ///<
 
 // Defines for PWM Clock, word offsets (ie 4 byte multiples)
-#define BCM2835_PWMCLK_CNTL     40
-#define BCM2835_PWMCLK_DIV      41
-#define BCM2835_PWM_PASSWRD     (0x5A << 24)  ///< Password to enable setting PWM clock
+#define BCM2835_PWMCLK_CNTL     40 ///<
+#define BCM2835_PWMCLK_DIV      41 ///<
+#define BCM2835_PWM_PASSWRD     (0x5A << 24) ///< Password to enable setting PWM clock
 
 #define BCM2835_PWM1_MS_MODE    0x8000  ///< Run in Mark/Space mode
 #define BCM2835_PWM1_USEFIFO    0x2000  ///< Data from FIFO

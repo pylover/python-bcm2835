@@ -135,6 +135,145 @@ RPI_V2_GPIO_P5_05 = c_RPI_V2_GPIO_P5_05  # Version 2, Pin P5-05
 RPI_V2_GPIO_P5_06 = c_RPI_V2_GPIO_P5_06  # Version 2, Pin P5-06
 
 
+"""
+Defines for SPI
+GPIO register offsets from BCM2835_SPI0_BASE.
+Offsets into the SPI Peripheral block in bytes per 10.5 SPI Register Map
+"""
+SPI0_CS = c_BCM2835_SPI0_CS  # SPI Master Control and Status
+SPI0_FIFO = c_BCM2835_SPI0_FIFO  # SPI Master TX and RX FIFOs
+SPI0_CLK = c_BCM2835_SPI0_CLK  # SPI Master Clock Divider
+SPI0_DLEN = c_BCM2835_SPI0_DLEN  # SPI Master Data Length
+SPI0_LTOH = c_BCM2835_SPI0_LTOH  # SPI LOSSI mode TOH
+SPI0_DC = c_BCM2835_SPI0_DC  # SPI DMA DREQ Controls
+
+
+"""
+Register masks for SPI0_CS
+"""
+SPI0_CS_LEN_LONG = c_BCM2835_SPI0_CS_LEN_LONG  # Enable Long data word in Lossi mode if DMA_LEN is set
+SPI0_CS_DMA_LEN = c_BCM2835_SPI0_CS_DMA_LEN  # Enable DMA mode in Lossi mode
+SPI0_CS_CSPOL2 = c_BCM2835_SPI0_CS_CSPOL2  # Chip Select 2 Polarity
+SPI0_CS_CSPOL1 = c_BCM2835_SPI0_CS_CSPOL1  # Chip Select 1 Polarity
+SPI0_CS_CSPOL0 = c_BCM2835_SPI0_CS_CSPOL0  # Chip Select 0 Polarity
+SPI0_CS_RXF = c_BCM2835_SPI0_CS_RXF  # RXF - RX FIFO Full
+SPI0_CS_RXR = c_BCM2835_SPI0_CS_RXR  # RXR RX FIFO needs Reading ( full)
+SPI0_CS_TXD = c_BCM2835_SPI0_CS_TXD  # TXD TX FIFO can accept Data
+SPI0_CS_RXD = c_BCM2835_SPI0_CS_RXD  # RXD RX FIFO contains Data
+SPI0_CS_DONE = c_BCM2835_SPI0_CS_DONE  # Done transfer Done
+SPI0_CS_TE_EN = c_BCM2835_SPI0_CS_TE_EN  # Unused
+SPI0_CS_LMONO = c_BCM2835_SPI0_CS_LMONO  # Unused
+SPI0_CS_LEN = c_BCM2835_SPI0_CS_LEN  # LEN LoSSI enable
+SPI0_CS_REN = c_BCM2835_SPI0_CS_REN  # REN Read Enable
+SPI0_CS_ADCS = c_BCM2835_SPI0_CS_ADCS  # ADCS Automatically Deassert Chip Select
+SPI0_CS_INTR = c_BCM2835_SPI0_CS_INTR  # INTR Interrupt on RXR
+SPI0_CS_INTD = c_BCM2835_SPI0_CS_INTD  # INTD Interrupt on Done
+SPI0_CS_DMAEN = c_BCM2835_SPI0_CS_DMAEN  # DMAEN DMA Enable
+SPI0_CS_TA = c_BCM2835_SPI0_CS_TA  # Transfer Active
+SPI0_CS_CSPOL = c_BCM2835_SPI0_CS_CSPOL  # Chip Select Polarity
+SPI0_CS_CLEAR = c_BCM2835_SPI0_CS_CLEAR  # Clear FIFO Clear RX and TX
+SPI0_CS_CLEAR_RX = c_BCM2835_SPI0_CS_CLEAR_RX  # Clear FIFO Clear RX
+SPI0_CS_CLEAR_TX = c_BCM2835_SPI0_CS_CLEAR_TX  # Clear FIFO Clear TX
+SPI0_CS_CPOL = c_BCM2835_SPI0_CS_CPOL  # Clock Polarity
+SPI0_CS_CPHA = c_BCM2835_SPI0_CS_CPHA  # Clock Phase
+SPI0_CS_CS = c_BCM2835_SPI0_CS_CS  # Chip Select
+
+
+"""
+Defines for I2C
+GPIO register offsets from BCM2835_BSC*_BASE.
+Offsets into the BSC Peripheral block in bytes per 3.1 BSC Register Map
+"""
+BSC_C = c_BCM2835_BSC_C  # BSC Master Control
+BSC_S = c_BCM2835_BSC_S  # BSC Master Status
+BSC_DLEN = c_BCM2835_BSC_DLEN  # BSC Master Data Length
+BSC_A = c_BCM2835_BSC_A  # BSC Master Slave Address
+BSC_FIFO = c_BCM2835_BSC_FIFO  # BSC Master Data FIFO
+BSC_DIV = c_BCM2835_BSC_DIV  # BSC Master Clock Divider
+BSC_DEL = c_BCM2835_BSC_DEL  # BSC Master Data Delay
+BSC_CLKT = c_BCM2835_BSC_CLKT  # BSC Master Clock Stretch Timeout
+
+
+"""
+Register masks for BSC_C
+"""
+BSC_C_I2CEN = c_BCM2835_BSC_C_I2CEN  # I2C Enable, 0 = disabled, 1 = enabled
+BSC_C_INTR = c_BCM2835_BSC_C_INTR  # Interrupt on RX
+BSC_C_INTT = c_BCM2835_BSC_C_INTT  # Interrupt on TX
+BSC_C_INTD = c_BCM2835_BSC_C_INTD  # Interrupt on DONE
+BSC_C_ST = c_BCM2835_BSC_C_ST  # Start transfer, 1 = Start a new transfer
+BSC_C_CLEAR_1 = c_BCM2835_BSC_C_CLEAR_1  # Clear FIFO Clear
+BSC_C_CLEAR_2 = c_BCM2835_BSC_C_CLEAR_2  # Clear FIFO Clear
+BSC_C_READ = c_BCM2835_BSC_C_READ  # Read transfer
+
+
+"""
+Register masks for BSC_S
+"""
+BSC_S_CLKT = c_BCM2835_BSC_S_CLKT  # Clock stretch timeout
+BSC_S_ERR = c_BCM2835_BSC_S_ERR  # ACK error
+BSC_S_RXF = c_BCM2835_BSC_S_RXF  # RXF FIFO full, 0 = FIFO is not full, 1 = FIFO is full
+BSC_S_TXE = c_BCM2835_BSC_S_TXE  # TXE FIFO full, 0 = FIFO is not full, 1 = FIFO is full
+BSC_S_RXD = c_BCM2835_BSC_S_RXD  # RXD FIFO contains data
+BSC_S_TXD = c_BCM2835_BSC_S_TXD  # TXD FIFO can accept data
+BSC_S_RXR = c_BCM2835_BSC_S_RXR  # RXR FIFO needs reading (full)
+BSC_S_TXW = c_BCM2835_BSC_S_TXW  # TXW FIFO needs writing (full)
+BSC_S_DONE = c_BCM2835_BSC_S_DONE  # Transfer DONE
+BSC_S_TA = c_BCM2835_BSC_S_TA  # Transfer Active
+BSC_FIFO_SIZE = c_BCM2835_BSC_FIFO_SIZE  # BSC FIFO size
+
+"""
+Defines for ST
+GPIO register offsets from BCM2835_ST_BASE.
+Offsets into the ST Peripheral block in bytes per 12.1 System Timer Registers
+The System Timer peripheral provides four 32-bit timer channels and a single 64-bit free running counter.
+BCM2835_ST_CLO is the System Timer Counter Lower bits register.
+The system timer free-running counter lower register is a read-only register that returns the current value
+of the lower 32-bits of the free running counter.
+BCM2835_ST_CHI is the System Timer Counter Upper bits register.
+The system timer free-running counter upper register is a read-only register that returns the current value
+"""
+ST_CS = c_BCM2835_ST_CS  # System Timer Control/Status
+ST_CLO = c_BCM2835_ST_CLO  # System Timer Counter Lower 32 bits
+ST_CHI = c_BCM2835_ST_CHI  # System Timer Counter Upper 32 bits
+
+
+"""
+Defines for PWM, word offsets (ie 4 byte multiples)
+"""
+PWM_CONTROL = c_BCM2835_PWM_CONTROL
+PWM_STATUS = c_BCM2835_PWM_STATUS
+PWM_DMAC = c_BCM2835_PWM_DMAC
+PWM0_RANGE = c_BCM2835_PWM0_RANGE
+PWM0_DATA = c_BCM2835_PWM0_DATA
+PWM_FIF1 = c_BCM2835_PWM_FIF1
+PWM1_RANGE = c_BCM2835_PWM1_RANGE
+PWM1_DATA = c_BCM2835_PWM1_DATA
+
+
+"""
+Defines for PWM Clock, word offsets (ie 4 byte multiples)
+"""
+PWMCLK_CNTL = c_BCM2835_PWMCLK_CNTL
+PWMCLK_DIV = c_BCM2835_PWMCLK_DIV
+PWM_PASSWRD = c_BCM2835_PWM_PASSWRD  # Password to enable setting PWM clock
+
+PWM1_MS_MODE = c_BCM2835_PWM1_MS_MODE  # Run in Mark/Space mode
+PWM1_USEFIFO = c_BCM2835_PWM1_USEFIFO  # Data from FIFO
+PWM1_REVPOLAR = c_BCM2835_PWM1_REVPOLAR  # Reverse polarity
+PWM1_OFFSTATE = c_BCM2835_PWM1_OFFSTATE  # Ouput Off state
+PWM1_REPEATFF = c_BCM2835_PWM1_REPEATFF  # Repeat last value if FIFO empty
+PWM1_SERIAL = c_BCM2835_PWM1_SERIAL  # Run in serial mode
+PWM1_ENABLE = c_BCM2835_PWM1_ENABLE  # Channel Enable
+
+PWM0_MS_MODE = c_BCM2835_PWM0_MS_MODE  # Run in Mark/Space mode
+PWM_CLEAR_FIFO = c_BCM2835_PWM_CLEAR_FIFO  # Clear FIFO
+PWM0_USEFIFO = c_BCM2835_PWM0_USEFIFO  # Data from FIFO
+PWM0_REVPOLAR = c_BCM2835_PWM0_REVPOLAR  # Reverse polarity
+PWM0_OFFSTATE = c_BCM2835_PWM0_OFFSTATE  # Ouput Off state
+PWM0_REPEATFF = c_BCM2835_PWM0_REPEATFF  # Repeat last value if FIFO empty
+PWM0_SERIAL = c_BCM2835_PWM0_SERIAL  # Run in serial mode
+PWM0_ENABLE = c_BCM2835_PWM0_ENABLE  # Channel Enable
 
 def init():
   return c_bcm2835_init()
@@ -237,6 +376,99 @@ __all__ = [
   'RPI_V2_GPIO_P5_04',
   'RPI_V2_GPIO_P5_05',
   'RPI_V2_GPIO_P5_06',
+
+  'SPI0_CS',
+  'SPI0_FIFO',
+  'SPI0_CLK',
+  'SPI0_DLEN',
+  'SPI0_LTOH',
+  'SPI0_DC',
+
+  'SPI0_CS_LEN_LONG',
+  'SPI0_CS_DMA_LEN',
+  'SPI0_CS_CSPOL2',
+  'SPI0_CS_CSPOL1',
+  'SPI0_CS_CSPOL0',
+  'SPI0_CS_RXF',
+  'SPI0_CS_RXR',
+  'SPI0_CS_TXD',
+  'SPI0_CS_RXD',
+  'SPI0_CS_DONE',
+  'SPI0_CS_TE_EN',
+  'SPI0_CS_LMONO',
+  'SPI0_CS_LEN',
+  'SPI0_CS_REN',
+  'SPI0_CS_ADCS',
+  'SPI0_CS_INTR',
+  'SPI0_CS_INTD',
+  'SPI0_CS_DMAEN',
+  'SPI0_CS_TA',
+  'SPI0_CS_CSPOL',
+  'SPI0_CS_CLEAR',
+  'SPI0_CS_CLEAR_RX',
+  'SPI0_CS_CLEAR_TX',
+  'SPI0_CS_CPOL',
+  'SPI0_CS_CPHA',
+  'SPI0_CS_CS',
+
+  'BSC_C',
+  'BSC_S',
+  'BSC_DLEN',
+  'BSC_A',
+  'BSC_FIFO',
+  'BSC_DIV',
+  'BSC_DEL',
+  'BSC_CLKT',
+  'BSC_C_I2CEN',
+  'BSC_C_INTR',
+  'BSC_C_INTT',
+  'BSC_C_INTD',
+  'BSC_C_ST',
+  'BSC_C_CLEAR_1',
+  'BSC_C_CLEAR_2',
+  'BSC_C_READ',
+  'BSC_S_CLKT',
+  'BSC_S_ERR',
+  'BSC_S_RXF',
+  'BSC_S_TXE',
+  'BSC_S_RXD',
+  'BSC_S_TXD',
+  'BSC_S_RXR',
+  'BSC_S_TXW',
+  'BSC_S_DONE',
+  'BSC_S_TA',
+
+  'BSC_FIFO_SIZE',
+
+  'ST_CS',
+  'ST_CLO',
+  'ST_CHI',
+  'PWM_CONTROL',
+  'PWM_STATUS',
+  'PWM_DMAC',
+  'PWM0_RANGE',
+  'PWM0_DATA',
+  'PWM_FIF1',
+  'PWM1_RANGE',
+  'PWM1_DATA',
+  'PWMCLK_CNTL',
+  'PWMCLK_DIV',
+  'PWM_PASSWRD',
+  'PWM1_MS_MODE',
+  'PWM1_USEFIFO',
+  'PWM1_REVPOLAR',
+  'PWM1_OFFSTATE',
+  'PWM1_REPEATFF',
+  'PWM1_SERIAL',
+  'PWM1_ENABLE',
+  'PWM0_MS_MODE',
+  'PWM_CLEAR_FIFO',
+  'PWM0_USEFIFO',
+  'PWM0_REVPOLAR',
+  'PWM0_OFFSTATE',
+  'PWM0_REPEATFF',
+  'PWM0_SERIAL',
+  'PWM0_ENABLE',
 
   'init'
 ]
