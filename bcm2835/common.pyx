@@ -1,8 +1,8 @@
 
 
 cdef extern from "_bcm2835.h" nogil:
-    int bcm8235_init()
+    int bcm2835_init()
 
 def init():
-  return bcm8235_init()
+  return bcm2835_init()
 
