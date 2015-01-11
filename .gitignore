@@ -54,5 +54,5 @@ docs/_build/
 target/
 
 .idea/*
-bcm2835/common.c
-bcm2835/common.so
+bcm2835/bcm2835.c
+bcm2835/bcm2835.so
