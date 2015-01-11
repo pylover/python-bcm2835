@@ -55,3 +55,4 @@ target/
 
 .idea/*
 bcm2835/common.c
+bcm2835/common.so

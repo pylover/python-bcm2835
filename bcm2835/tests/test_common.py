@@ -20,8 +20,8 @@ class TestCommon(unittest.TestCase):
     self.assertEqual(BSC0_BASE, PERI_BASE + 0x205000)
     self.assertEqual(GPIO_PWM, PERI_BASE + 0x20C000)
     self.assertEqual(BSC1_BASE, PERI_BASE + 0x804000)
-
-
+    self.assertEqual(PAGE_SIZE, 4*1024)
+    self.assertEqual(BLOCK_SIZE, 4*1024)
 
 if __name__ == '__main__':
   unittest.main()

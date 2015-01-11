@@ -1,18 +1,11 @@
+# -*- coding: utf-8 -*-
+__author__ = 'vahid'
 
-cdef extern from "_bcm2835.h" nogil:
-  int c_HIGH "HIGH"
-  int c_LOW "LOW"
-  int c_BCM2835_CORE_CLK_HZ "BCM2835_CORE_CLK_HZ"
-  int c_BCM2835_PERI_BASE "BCM2835_PERI_BASE"
-  int c_BCM2835_ST_BASE "BCM2835_ST_BASE"
-  int c_BCM2835_GPIO_PADS "BCM2835_GPIO_PADS"
-  int c_BCM2835_CLOCK_BASE "BCM2835_CLOCK_BASE"
-  int c_BCM2835_GPIO_BASE "BCM2835_GPIO_BASE"
-  int c_BCM2835_SPI0_BASE "BCM2835_SPI0_BASE"
-  int c_BCM2835_BSC0_BASE "BCM2835_BSC0_BASE"
-  int c_BCM2835_GPIO_PWM "BCM2835_GPIO_PWM"
-  int c_BCM2835_BSC1_BASE "BCM2835_BSC1_BASE"
-  int c_bcm2835_init "bcm2835_init"()
+from _bcm2835 cimport c_HIGH, c_LOW, c_BCM2835_CORE_CLK_HZ, c_BCM2835_PERI_BASE, \
+  c_BCM2835_ST_BASE, c_BCM2835_GPIO_PADS, c_BCM2835_CLOCK_BASE, c_BCM2835_GPIO_BASE, \
+  c_BCM2835_SPI0_BASE, c_BCM2835_BSC0_BASE, c_BCM2835_GPIO_PWM, c_BCM2835_BSC1_BASE, \
+  c_BCM2835_PAGE_SIZE, c_BCM2835_BLOCK_SIZE, \
+  c_bcm2835_init
 
 
 """
@@ -76,6 +69,17 @@ Base Physical Address of the BSC1 registers
 """
 BSC1_BASE = c_BCM2835_BSC1_BASE
 
+"""
+Size of memory page on RPi
+"""
+PAGE_SIZE = c_BCM2835_PAGE_SIZE
+
+"""
+Size of memory block on RPi
+"""
+BLOCK_SIZE = c_BCM2835_BLOCK_SIZE
+
+
 def init():
   return c_bcm2835_init()
 
@@ -92,5 +96,7 @@ __all__ = [
   'BSC0_BASE',
   'GPIO_PWM',
   'BSC1_BASE',
+  'PAGE_SIZE',
+  'BLOCK_SIZE',
   'init'
 ]
