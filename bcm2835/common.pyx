@@ -1,9 +1,8 @@
 
 
-from _bcm2835 cimport c_HIGH, c_init
-
-HIGH = c_HIGH
+cdef extern from "_bcm8235.h":
+    int bcm8235_init()
 
 def init():
-  return c_init()
+  return bcm8235_init()
 
