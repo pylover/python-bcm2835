@@ -418,7 +418,12 @@ def peri_read(paddr):
   :return: the value read from the 32 bit register
   """
 
-  return c_bcm2835_peri_read(<uintptr_t>paddr)
+  return c_bcm2835_peri_read(<uintptr_t> paddr)
+
+
+def get_gpio_base():
+  return c_bcm2835_gpio
+
 
 __all__ = [
   'HIGH',
