@@ -1,7 +1,7 @@
 __author__ = 'vahid'
 
 import unittest
-from bcm2835.common import *
+from bcm2835 import *
 
 
 class TestCommon(unittest.TestCase):
