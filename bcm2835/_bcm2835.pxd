@@ -62,4 +62,49 @@ cdef extern from "_bcm2835.h" nogil:
     c_BCM2835_GPIO_PUD_DOWN "BCM2835_GPIO_PUD_DOWN"
     c_BCM2835_GPIO_PUD_UP "BCM2835_GPIO_PUD_UP"
 
+
+  ctypedef enum c_RPiGPIOPin "RPiGPIOPin":
+    # RPi Version 1
+    c_RPI_GPIO_P1_03 "RPI_GPIO_P1_03"  # Version 1, Pin P1-03
+    c_RPI_GPIO_P1_05 "RPI_GPIO_P1_05"  # Version 1, Pin P1-05
+    c_RPI_GPIO_P1_07 "RPI_GPIO_P1_07"  # Version 1, Pin P1-07
+    c_RPI_GPIO_P1_08 "RPI_GPIO_P1_08"  # Version 1, Pin P1-08, defaults to alt function 0 UART0_TXD
+    c_RPI_GPIO_P1_10 "RPI_GPIO_P1_10"  # Version 1, Pin P1-10, defaults to alt function 0 UART0_RXD
+    c_RPI_GPIO_P1_11 "RPI_GPIO_P1_11"  # Version 1, Pin P1-11
+    c_RPI_GPIO_P1_12 "RPI_GPIO_P1_12"  # Version 1, Pin P1-12, can be PWM channel 0 in ALT FUN 5
+    c_RPI_GPIO_P1_13 "RPI_GPIO_P1_13"  # Version 1, Pin P1-13
+    c_RPI_GPIO_P1_15 "RPI_GPIO_P1_15"  # Version 1, Pin P1-15
+    c_RPI_GPIO_P1_16 "RPI_GPIO_P1_16"  # Version 1, Pin P1-16
+    c_RPI_GPIO_P1_18 "RPI_GPIO_P1_18"  # Version 1, Pin P1-18
+    c_RPI_GPIO_P1_19 "RPI_GPIO_P1_19"  # Version 1, Pin P1-19, MOSI when SPI0 in use
+    c_RPI_GPIO_P1_21 "RPI_GPIO_P1_21"  # Version 1, Pin P1-21, MISO when SPI0 in use
+    c_RPI_GPIO_P1_22 "RPI_GPIO_P1_22"  # Version 1, Pin P1-22
+    c_RPI_GPIO_P1_23 "RPI_GPIO_P1_23"  # Version 1, Pin P1-23, CLK when SPI0 in use
+    c_RPI_GPIO_P1_24 "RPI_GPIO_P1_24"  # Version 1, Pin P1-24, CE0 when SPI0 in use
+    c_RPI_GPIO_P1_26 "RPI_GPIO_P1_26"  # Version 1, Pin P1-26, CE1 when SPI0 in use
+
+    # RPi Version 2
+    c_RPI_V2_GPIO_P1_03 "RPI_V2_GPIO_P1_03"  # Version 2, Pin P1-03
+    c_RPI_V2_GPIO_P1_05 "RPI_V2_GPIO_P1_05"  # Version 2, Pin P1-05
+    c_RPI_V2_GPIO_P1_07 "RPI_V2_GPIO_P1_07"  # Version 2, Pin P1-07
+    c_RPI_V2_GPIO_P1_08 "RPI_V2_GPIO_P1_08"  # Version 2, Pin P1-08, defaults to alt function 0 UART0_TXD
+    c_RPI_V2_GPIO_P1_10 "RPI_V2_GPIO_P1_10"  # Version 2, Pin P1-10, defaults to alt function 0 UART0_RXD
+    c_RPI_V2_GPIO_P1_11 "RPI_V2_GPIO_P1_11"  # Version 2, Pin P1-11
+    c_RPI_V2_GPIO_P1_12 "RPI_V2_GPIO_P1_12"  # Version 2, Pin P1-12, can be PWM channel 0 in ALT FUN 5
+    c_RPI_V2_GPIO_P1_13 "RPI_V2_GPIO_P1_13"  # Version 2, Pin P1-13
+    c_RPI_V2_GPIO_P1_15 "RPI_V2_GPIO_P1_15"  # Version 2, Pin P1-15
+    c_RPI_V2_GPIO_P1_16 "RPI_V2_GPIO_P1_16"  # Version 2, Pin P1-16
+    c_RPI_V2_GPIO_P1_18 "RPI_V2_GPIO_P1_18"  # Version 2, Pin P1-18
+    c_RPI_V2_GPIO_P1_19 "RPI_V2_GPIO_P1_19"  # Version 2, Pin P1-19, MOSI when SPI0 in use
+    c_RPI_V2_GPIO_P1_21 "RPI_V2_GPIO_P1_21"  # Version 2, Pin P1-21, MISO when SPI0 in use
+    c_RPI_V2_GPIO_P1_22 "RPI_V2_GPIO_P1_22"  # Version 2, Pin P1-22
+    c_RPI_V2_GPIO_P1_23 "RPI_V2_GPIO_P1_23"  # Version 2, Pin P1-23, CLK when SPI0 in use
+    c_RPI_V2_GPIO_P1_24 "RPI_V2_GPIO_P1_24"  # Version 2, Pin P1-24, CE0 when SPI0 in use
+    c_RPI_V2_GPIO_P1_26 "RPI_V2_GPIO_P1_26"  # Version 2, Pin P1-26, CE1 when SPI0 in use
+    c_RPI_V2_GPIO_P5_03 "RPI_V2_GPIO_P5_03"  # Version 2, Pin P5-03
+    c_RPI_V2_GPIO_P5_04 "RPI_V2_GPIO_P5_04"  # Version 2, Pin P5-04
+    c_RPI_V2_GPIO_P5_05 "RPI_V2_GPIO_P5_05"  # Version 2, Pin P5-05
+    c_RPI_V2_GPIO_P5_06 "RPI_V2_GPIO_P5_06"  # Version 2, Pin P5-06
+
+
   int c_bcm2835_init          "bcm2835_init"()

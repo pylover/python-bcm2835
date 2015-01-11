@@ -73,12 +73,68 @@ GPIO_FSEL_ALT4 = c_BCM2835_GPIO_FSEL_ALT4  # Alternate function 4
 GPIO_FSEL_ALT5 = c_BCM2835_GPIO_FSEL_ALT5  # Alternate function 5
 GPIO_FSEL_MASK = c_BCM2835_GPIO_FSEL_MASK  # Function select bits mask
 
+
 """
 Pullup/Pulldown defines for bcm2835_gpio_pud()
 """
 GPIO_PUD_OFF = c_BCM2835_GPIO_PUD_OFF  # Off ? disable pull-up/down
 GPIO_PUD_DOWN = c_BCM2835_GPIO_PUD_DOWN  # Enable Pull Down control
 GPIO_PUD_UP = c_BCM2835_GPIO_PUD_UP  # Enable Pull Up control
+
+
+"""
+Here we define Raspberry Pin GPIO pins on P1 in terms of the underlying BCM GPIO pin numbers.
+These can be passed as a pin number to any function requiring a pin.
+Not all pins on the RPi 26 bin IDE plug are connected to GPIO pins
+and some can adopt an alternate function.
+RPi version 2 has some slightly different pinouts, and these are values RPI_V2_*.
+At bootup, pins 8 and 10 are set to UART0_TXD, UART0_RXD (ie the alt0 function) respectively
+When SPI0 is in use (ie after bcm2835_spi_begin()), pins 19, 21, 23, 24, 26 are dedicated to SPI
+and cant be controlled independently
+"""
+# RPI Version 1
+RPI_GPIO_P1_03 = c_RPI_GPIO_P1_03  # Version 1, Pin P1-03
+RPI_GPIO_P1_05 = c_RPI_GPIO_P1_05  # Version 1, Pin P1-05
+RPI_GPIO_P1_07 = c_RPI_GPIO_P1_07  # Version 1, Pin P1-07
+RPI_GPIO_P1_08 = c_RPI_GPIO_P1_08  # Version 1, Pin P1-08, defaults to alt function 0 UART0_TXD
+RPI_GPIO_P1_10 = c_RPI_GPIO_P1_10  # Version 1, Pin P1-10, defaults to alt function 0 UART0_RXD
+RPI_GPIO_P1_11 = c_RPI_GPIO_P1_11  # Version 1, Pin P1-11
+RPI_GPIO_P1_12 = c_RPI_GPIO_P1_12  # Version 1, Pin P1-12, can be PWM channel 0 in ALT FUN 5
+RPI_GPIO_P1_13 = c_RPI_GPIO_P1_13  # Version 1, Pin P1-13
+RPI_GPIO_P1_15 = c_RPI_GPIO_P1_15  # Version 1, Pin P1-15
+RPI_GPIO_P1_16 = c_RPI_GPIO_P1_16  # Version 1, Pin P1-16
+RPI_GPIO_P1_18 = c_RPI_GPIO_P1_18  # Version 1, Pin P1-18
+RPI_GPIO_P1_19 = c_RPI_GPIO_P1_19  # Version 1, Pin P1-19, MOSI when SPI0 in use
+RPI_GPIO_P1_21 = c_RPI_GPIO_P1_21  # Version 1, Pin P1-21, MISO when SPI0 in use
+RPI_GPIO_P1_22 = c_RPI_GPIO_P1_22  # Version 1, Pin P1-22
+RPI_GPIO_P1_23 = c_RPI_GPIO_P1_23  # Version 1, Pin P1-23, CLK when SPI0 in use
+RPI_GPIO_P1_24 = c_RPI_GPIO_P1_24  # Version 1, Pin P1-24, CE0 when SPI0 in use
+RPI_GPIO_P1_26 = c_RPI_GPIO_P1_26  # Version 1, Pin P1-26, CE1 when SPI0 in use
+
+# RPI Version 2
+RPI_V2_GPIO_P1_03 = c_RPI_V2_GPIO_P1_03  # Version 2, Pin P1-03
+RPI_V2_GPIO_P1_05 = c_RPI_V2_GPIO_P1_05  # Version 2, Pin P1-05
+RPI_V2_GPIO_P1_07 = c_RPI_V2_GPIO_P1_07  # Version 2, Pin P1-07
+RPI_V2_GPIO_P1_08 = c_RPI_V2_GPIO_P1_08  # Version 2, Pin P1-08, defaults to alt function 0 UART0_TXD
+RPI_V2_GPIO_P1_10 = c_RPI_V2_GPIO_P1_10  # Version 2, Pin P1-10, defaults to alt function 0 UART0_RXD
+RPI_V2_GPIO_P1_11 = c_RPI_V2_GPIO_P1_11  # Version 2, Pin P1-11
+RPI_V2_GPIO_P1_12 = c_RPI_V2_GPIO_P1_12  # Version 2, Pin P1-12, can be PWM channel 0 in ALT FUN 5
+RPI_V2_GPIO_P1_13 = c_RPI_V2_GPIO_P1_13  # Version 2, Pin P1-13
+RPI_V2_GPIO_P1_15 = c_RPI_V2_GPIO_P1_15  # Version 2, Pin P1-15
+RPI_V2_GPIO_P1_16 = c_RPI_V2_GPIO_P1_16  # Version 2, Pin P1-16
+RPI_V2_GPIO_P1_18 = c_RPI_V2_GPIO_P1_18  # Version 2, Pin P1-18
+RPI_V2_GPIO_P1_19 = c_RPI_V2_GPIO_P1_19  # Version 2, Pin P1-19, MOSI when SPI0 in use
+RPI_V2_GPIO_P1_21 = c_RPI_V2_GPIO_P1_21  # Version 2, Pin P1-21, MISO when SPI0 in use
+RPI_V2_GPIO_P1_22 = c_RPI_V2_GPIO_P1_22  # Version 2, Pin P1-22
+RPI_V2_GPIO_P1_23 = c_RPI_V2_GPIO_P1_23  # Version 2, Pin P1-23, CLK when SPI0 in use
+RPI_V2_GPIO_P1_24 = c_RPI_V2_GPIO_P1_24  # Version 2, Pin P1-24, CE0 when SPI0 in use
+RPI_V2_GPIO_P1_26 = c_RPI_V2_GPIO_P1_26  # Version 2, Pin P1-26, CE1 when SPI0 in use
+RPI_V2_GPIO_P5_03 = c_RPI_V2_GPIO_P5_03  # Version 2, Pin P5-03
+RPI_V2_GPIO_P5_04 = c_RPI_V2_GPIO_P5_04  # Version 2, Pin P5-04
+RPI_V2_GPIO_P5_05 = c_RPI_V2_GPIO_P5_05  # Version 2, Pin P5-05
+RPI_V2_GPIO_P5_06 = c_RPI_V2_GPIO_P5_06  # Version 2, Pin P5-06
+
+
 
 def init():
   return c_bcm2835_init()
@@ -99,49 +155,88 @@ __all__ = [
   'GPIO_BASE',
   'GPIO_PWM',
 
-  "GPFSEL0",
-  "GPFSEL1",
-  "GPFSEL2",
-  "GPFSEL3",
-  "GPFSEL4",
-  "GPFSEL5",
-  "GPSET0",
-  "GPSET1",
-  "GPCLR0",
-  "GPCLR1",
-  "GPLEV0",
-  "GPLEV1",
-  "GPEDS0",
-  "GPEDS1",
-  "GPREN0",
-  "GPREN1",
-  "GPFEN0",
-  "GPFEN1",
-  "GPHEN0",
-  "GPHEN1",
-  "GPLEN0",
-  "GPLEN1",
-  "GPAREN0",
-  "GPAREN1",
-  "GPAFEN0",
-  "GPAFEN1",
-  "GPPUD",
-  "GPPUDCLK0",
-  "GPPUDCLK1",
+  'GPFSEL0',
+  'GPFSEL1',
+  'GPFSEL2',
+  'GPFSEL3',
+  'GPFSEL4',
+  'GPFSEL5',
+  'GPSET0',
+  'GPSET1',
+  'GPCLR0',
+  'GPCLR1',
+  'GPLEV0',
+  'GPLEV1',
+  'GPEDS0',
+  'GPEDS1',
+  'GPREN0',
+  'GPREN1',
+  'GPFEN0',
+  'GPFEN1',
+  'GPHEN0',
+  'GPHEN1',
+  'GPLEN0',
+  'GPLEN1',
+  'GPAREN0',
+  'GPAREN1',
+  'GPAFEN0',
+  'GPAFEN1',
+  'GPPUD',
+  'GPPUDCLK0',
+  'GPPUDCLK1',
 
-  "GPIO_FSEL_INPT",
-  "GPIO_FSEL_OUTP",
-  "GPIO_FSEL_ALT0",
-  "GPIO_FSEL_ALT1",
-  "GPIO_FSEL_ALT2",
-  "GPIO_FSEL_ALT3",
-  "GPIO_FSEL_ALT4",
-  "GPIO_FSEL_ALT5",
-  "GPIO_FSEL_MASK",
+  'GPIO_FSEL_INPT',
+  'GPIO_FSEL_OUTP',
+  'GPIO_FSEL_ALT0',
+  'GPIO_FSEL_ALT1',
+  'GPIO_FSEL_ALT2',
+  'GPIO_FSEL_ALT3',
+  'GPIO_FSEL_ALT4',
+  'GPIO_FSEL_ALT5',
+  'GPIO_FSEL_MASK',
 
-  "GPIO_PUD_OFF",
-  "GPIO_PUD_DOWN",
-  "GPIO_PUD_UP",
+  'GPIO_PUD_OFF',
+  'GPIO_PUD_DOWN',
+  'GPIO_PUD_UP',
+
+  'RPI_GPIO_P1_03',
+  'RPI_GPIO_P1_05',
+  'RPI_GPIO_P1_07',
+  'RPI_GPIO_P1_08',
+  'RPI_GPIO_P1_10',
+  'RPI_GPIO_P1_11',
+  'RPI_GPIO_P1_12',
+  'RPI_GPIO_P1_13',
+  'RPI_GPIO_P1_15',
+  'RPI_GPIO_P1_16',
+  'RPI_GPIO_P1_18',
+  'RPI_GPIO_P1_19',
+  'RPI_GPIO_P1_21',
+  'RPI_GPIO_P1_22',
+  'RPI_GPIO_P1_23',
+  'RPI_GPIO_P1_24',
+  'RPI_GPIO_P1_26',
+  'RPI_V2_GPIO_P1_03',
+  'RPI_V2_GPIO_P1_05',
+  'RPI_V2_GPIO_P1_07',
+  'RPI_V2_GPIO_P1_08',
+  'RPI_V2_GPIO_P1_10',
+  'RPI_V2_GPIO_P1_11',
+  'RPI_V2_GPIO_P1_12',
+  'RPI_V2_GPIO_P1_13',
+  'RPI_V2_GPIO_P1_15',
+  'RPI_V2_GPIO_P1_16',
+  'RPI_V2_GPIO_P1_18',
+  'RPI_V2_GPIO_P1_19',
+  'RPI_V2_GPIO_P1_21',
+  'RPI_V2_GPIO_P1_22',
+  'RPI_V2_GPIO_P1_23',
+  'RPI_V2_GPIO_P1_24',
+  'RPI_V2_GPIO_P1_26',
+  'RPI_V2_GPIO_P5_03',
+  'RPI_V2_GPIO_P5_04',
+  'RPI_V2_GPIO_P5_05',
+  'RPI_V2_GPIO_P5_06',
 
   'init'
 ]
