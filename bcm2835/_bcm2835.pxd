@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from libc.stdint cimport uintptr_t, uint32_t, uint8_t
+from libc.stdint cimport uintptr_t, uint32_t, uint8_t, uint64_t, uint16_t
 __author__ = 'vahid'
 
 
@@ -273,8 +273,71 @@ cdef extern from "_bcm2835.h" nogil:
     c_BCM2835_PWM_CLOCK_DIVIDER_2 "BCM2835_PWM_CLOCK_DIVIDER_2"  # ///< 2 = 9.6MHz, fastest you can get
     c_BCM2835_PWM_CLOCK_DIVIDER_1 "BCM2835_PWM_CLOCK_DIVIDER_1"  # ///< 1 = 4.6875kHz, same as divider 4096
 
+
+  # Variables
+  extern uintptr_t c_bcm2835_gpio "bcm2835_gpio"
+
+  # Functions
   extern int c_bcm2835_init "bcm2835_init" ()
   extern int c_bcm2835_close "bcm2835_close" ()
   extern void c_bcm2835_set_debug "bcm2835_set_debug" (uint8_t debug)
-  uint32_t c_bcm2835_peri_read "bcm2835_peri_read" (uintptr_t paddr)
-  extern uintptr_t c_bcm2835_gpio "bcm2835_gpio"
+  extern uint32_t c_bcm2835_peri_read "bcm2835_peri_read" (uintptr_t paddr)
+  extern uint32_t c_bcm2835_peri_read_nb "bcm2835_peri_read_nb" (uintptr_t paddr)
+  extern void c_bcm2835_peri_write "bcm2835_peri_write" (uintptr_t paddr, uint32_t value)
+  extern void c_bcm2835_peri_write_nb "bcm2835_peri_write_nb" (uintptr_t paddr, uint32_t value)
+  extern void c_bcm2835_peri_set_bits "bcm2835_peri_set_bits" (uintptr_t paddr, uint32_t value, uint32_t mask)
+  extern void c_bcm2835_gpio_fsel "bcm2835_gpio_fsel" (uint8_t pin, uint8_t mode)
+  extern void c_bcm2835_gpio_set "bcm2835_gpio_set" (uint8_t pin)
+  extern void c_bcm2835_gpio_clr "bcm2835_gpio_clr" (uint8_t pin)
+  extern void c_bcm2835_gpio_set_multi "bcm2835_gpio_set_multi" (uint32_t mask)
+  extern void c_bcm2835_gpio_clr_multi "bcm2835_gpio_clr_multi" (uint32_t mask)
+  extern uint8_t c_bcm2835_gpio_lev "bcm2835_gpio_lev" (uint8_t pin)
+  extern uint8_t c_bcm2835_gpio_eds "bcm2835_gpio_eds" (uint8_t pin)
+  extern void c_bcm2835_gpio_set_eds "bcm2835_gpio_set_eds" (uint8_t pin)
+  extern void c_bcm2835_gpio_ren "bcm2835_gpio_ren" (uint8_t pin)
+  extern void c_bcm2835_gpio_clr_ren "bcm2835_gpio_clr_ren" (uint8_t pin)
+  extern void c_bcm2835_gpio_fen "bcm2835_gpio_fen" (uint8_t pin)
+  extern void c_bcm2835_gpio_clr_fen "bcm2835_gpio_clr_fen" (uint8_t pin)
+  extern void c_bcm2835_gpio_hen "bcm2835_gpio_hen" (uint8_t pin)
+  extern void c_bcm2835_gpio_clr_hen "bcm2835_gpio_clr_hen" (uint8_t pin)
+  extern void c_bcm2835_gpio_len "bcm2835_gpio_len" (uint8_t pin)
+  extern void c_bcm2835_gpio_clr_len "bcm2835_gpio_clr_len" (uint8_t pin)
+  extern void c_bcm2835_gpio_aren "bcm2835_gpio_aren" (uint8_t pin)
+  extern void c_bcm2835_gpio_clr_aren "bcm2835_gpio_clr_aren" (uint8_t pin)
+  extern void c_bcm2835_gpio_afen "bcm2835_gpio_afen" (uint8_t pin)
+  extern void c_bcm2835_gpio_clr_afen "bcm2835_gpio_clr_afen" (uint8_t pin)
+  extern void c_bcm2835_gpio_pud "bcm2835_gpio_pud" (uint8_t pud)
+  extern void c_bcm2835_gpio_pudclk "bcm2835_gpio_pudclk" (uint8_t pin, uint8_t on)
+  extern uint32_t c_bcm2835_gpio_pad "bcm2835_gpio_pad" (uint8_t group)
+  extern void c_bcm2835_gpio_set_pad "bcm2835_gpio_set_pad" (uint8_t group, uint32_t control)
+  extern void c_bcm2835_delay "bcm2835_delay" (unsigned int millis)
+  extern void c_bcm2835_delayMicroseconds "bcm2835_delayMicroseconds" (uint64_t micros)
+  extern void c_bcm2835_gpio_write "bcm2835_gpio_write" (uint8_t pin, uint8_t on)
+  extern void c_bcm2835_gpio_write_multi "bcm2835_gpio_write_multi" (uint32_t mask, uint8_t on)
+  extern void c_bcm2835_gpio_write_mask "bcm2835_gpio_write_mask" (uint32_t value, uint32_t mask)
+  extern void c_bcm2835_gpio_set_pud "bcm2835_gpio_set_pud" (uint8_t pin, uint8_t pud)
+  extern void c_bcm2835_spi_begin "bcm2835_spi_begin" ()
+  extern void c_bcm2835_spi_end "bcm2835_spi_end" ()
+  extern void c_bcm2835_spi_setBitOrder "bcm2835_spi_setBitOrder" (uint8_t order)
+  extern void c_bcm2835_spi_setClockDivider "bcm2835_spi_setClockDivider" (uint16_t divider)
+  extern void c_bcm2835_spi_setDataMode "bcm2835_spi_setDataMode" (uint8_t mode)
+  extern void c_bcm2835_spi_chipSelect "bcm2835_spi_chipSelect" (uint8_t cs)
+  extern void c_bcm2835_spi_setChipSelectPolarity "bcm2835_spi_setChipSelectPolarity" (uint8_t cs, uint8_t active)
+  extern uint8_t c_bcm2835_spi_transfer "bcm2835_spi_transfer" (uint8_t value)
+  extern void c_bcm2835_spi_transfernb "bcm2835_spi_transfernb" (char* tbuf, char* rbuf, uint32_t len)
+  extern void c_bcm2835_spi_transfern "bcm2835_spi_transfern" (char* buf, uint32_t len)
+  extern void c_bcm2835_spi_writenb "bcm2835_spi_writenb" (char* buf, uint32_t len)
+  extern void c_bcm2835_i2c_begin "bcm2835_i2c_begin" ()
+  extern void c_bcm2835_i2c_end "bcm2835_i2c_end" ()
+  extern void c_bcm2835_i2c_setSlaveAddress "bcm2835_i2c_setSlaveAddress" (uint8_t addr)
+  extern void c_bcm2835_i2c_setClockDivider "bcm2835_i2c_setClockDivider" (uint16_t divider)
+  extern void c_bcm2835_i2c_set_baudrate "bcm2835_i2c_set_baudrate" (uint32_t baudrate)
+  extern uint8_t c_bcm2835_i2c_write "bcm2835_i2c_write" (const char * buf, uint32_t len)
+  extern uint8_t c_bcm2835_i2c_read "bcm2835_i2c_read" (char* buf, uint32_t len)
+  extern uint8_t c_bcm2835_i2c_read_register_rs "bcm2835_i2c_read_register_rs" (char* regaddr, char* buf, uint32_t len)
+  extern uint64_t c_bcm2835_st_read "bcm2835_st_read" ()
+  extern void c_bcm2835_st_delay "bcm2835_st_delay" (uint64_t offset_micros, uint64_t micros)
+  extern void c_bcm2835_pwm_set_clock "bcm2835_pwm_set_clock" (uint32_t divisor)
+  extern void c_bcm2835_pwm_set_mode "bcm2835_pwm_set_mode" (uint8_t channel, uint8_t markspace, uint8_t enabled)
+  extern void c_bcm2835_pwm_set_range "bcm2835_pwm_set_range" (uint8_t channel, uint32_t range)
+  extern void c_bcm2835_pwm_set_data "bcm2835_pwm_set_data" (uint8_t channel, uint32_t data)

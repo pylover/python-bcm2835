@@ -783,7 +783,6 @@ extern "C" {
     /// \sa Physical Addresses
     extern uint32_t bcm2835_peri_read(volatile uint32_t* paddr);
 
-
     /// Reads 32 bit value from a peripheral address without the read barrier
     /// You should only use this when your code has previously called bcm2835_peri_read()
     /// within the same peripheral, and no other peripheral access has occurred since.

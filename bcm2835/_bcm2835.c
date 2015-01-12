@@ -153,13 +153,12 @@ void bcm2835_gpio_fsel(uint8_t pin, uint8_t mode)
     bcm2835_peri_set_bits(paddr, value, mask);
 }
 
-//// get pin alt function
-//void bcm2835_gpio_fget(uint8_t pin, uint8_t mode)
+//// get pin's selected function
+//void bcm2835_gpio_fget(uint8_t pin)
 //{
-//    // Function selects are 10 pins per 32 bit word, 3 bits per pin
 //    volatile uint32_t* paddr = bcm2835_gpio + BCM2835_GPFSEL0/4 + (pin/10);
-//
 //    uint32_t* data = bcm2835_peri_read(paddr);
+//    return data;
 //
 //}
 
