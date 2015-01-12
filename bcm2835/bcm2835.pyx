@@ -974,7 +974,7 @@ def gpio_pud(pud)
 """
 
 
-def get_gpio_base():
+def get_gpio_base_address():
   return c_bcm2835_gpio
 
 
@@ -1259,5 +1259,5 @@ __all__ = [
   'gpio_afen',
   'gpio_clr_afen',
 
-
+  'get_gpio_base_address'
 ]
