@@ -1,3 +1,4 @@
+#! /usr/bin/env python
 # -*- coding: utf-8 -*-
 from bcm2835 import *
 __author__ = 'vahid'
