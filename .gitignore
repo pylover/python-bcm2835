@@ -54,5 +54,5 @@ docs/_build/
 target/
 
 .idea/*
-bcm2835/bcm2835.c
+../raspberrypi-bcm2835/raspberrypi/bcm2835/bcm2835.c
 bcm2835/bcm2835.so
